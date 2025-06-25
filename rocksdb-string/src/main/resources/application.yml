@@ -1,0 +1,5 @@
+rocksdb:
+  rocksdb-template-class: io.github.xctec.rocksdb.core.StringRocksdbTemplate
+  column-family-operations-class: io.github.xctec.rocksdb.core.DefaultStringColumnFamilyOperations
+  db-name: rocksdb-string
+  path: rocksdb1
