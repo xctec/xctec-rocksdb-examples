@@ -2,6 +2,7 @@ package io.github.xctec.demo;
 
 
 import io.github.xctec.demo.pojo.Pojo1;
+//  import io.github.xctec.demo.pojo.Pojo2;
 import io.github.xctec.demo.pojo.Pojo2;
 import io.github.xctec.rocksdb.core.RocksdbTemplate;
 import org.springframework.boot.SpringApplication;
@@ -18,8 +19,7 @@ public class Main {
             RocksdbTemplate s = ctx.getBean(RocksdbTemplate.class);
             s.put("key1", new Pojo1());
             System.out.println(s.get("key1"));
-            Pojo2 pojo2 =  new Pojo2();
-            s.getColumnFamilyOperations("cf1").put("key2",  pojo2);
+            s.getColumnFamilyOperations("cf1").put("key2", new Pojo2());
             Object v = s.getColumnFamilyOperations("cf1").get("key2");
             System.out.println(v);
         } catch (Exception e) {

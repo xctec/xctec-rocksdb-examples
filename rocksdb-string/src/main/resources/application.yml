@@ -3,3 +3,5 @@ rocksdb:
   column-family-operations-class: io.github.xctec.rocksdb.core.DefaultStringColumnFamilyOperations
   db-name: rocksdb-string
   path: rocksdb1
+  logger-level: info
+  logger-type: slf4j

@@ -1,6 +1,8 @@
 package io.github.xctec.demo.pojo;
 
-public class Pojo3 {
+import java.io.Serializable;
+
+public class Pojo3 implements Serializable {
     private String key1;
     private String k2;
     private String key3;
@@ -27,5 +29,14 @@ public class Pojo3 {
 
     public void setKey3(String key3) {
         this.key3 = key3;
+    }
+
+    @Override
+    public String toString() {
+        return "Pojo3{" +
+                "key1='" + key1 + '\'' +
+                ", k2='" + k2 + '\'' +
+                ", key3='" + key3 + '\'' +
+                '}';
     }
 }

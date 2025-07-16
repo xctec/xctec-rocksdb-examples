@@ -1,6 +1,8 @@
 package io.github.xctec.demo.pojo;
 
-public class Pojo1 {
+import java.io.Serializable;
+
+public class Pojo1 implements Serializable {
     private String key1;
     private String key2;
     private String key3;
