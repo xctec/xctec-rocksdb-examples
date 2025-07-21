@@ -1,0 +1,6 @@
+rocksdb:
+  rocksdb-template-class: io.github.xctec.rocksdb.core.RocksdbTemplate
+  column-family-operations-class: io.github.xctec.rocksdb.core.DefaultColumnFamilyOperations
+  db-name: gwyzw
+  path: rocksdb-gwyzw/dbpath
+  enable-default-event-listener: true

@@ -1,0 +1,30 @@
+package io.github.xctec.demo.config;
+
+import io.github.xctec.rocksdb.builder.*;
+import io.github.xctec.rocksdb.serializer.RocksdbSerializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RocksdbConfiguration {
+    @Bean
+    public DBOptionsConfigurer dbOptionsConfigurer() {
+        return dbOptions -> {
+            // 设置其他的配置
+            dbOptions.setCreateIfMissing(true)
+                    .setCreateMissingColumnFamilies(true);
+        };
+    }
+
+    @Bean
+    public ColumnFamilyConfigurer defaultColumnFamilyOptionsConfigurer() {
+        ColumnFamilyOptionsConfigurer configurer = columnFamilyOptions -> {
+            // columnFamilyOptions.setBlobFileSize(1024 * 1024 * 1204);
+        };
+        ColumnFamilyOperationsConfigurer operationsConfigurer = columnFamilyOptions -> {
+            columnFamilyOptions.setKeySerializer(RocksdbSerializer.string());
+            columnFamilyOptions.setValueSerializer(RocksdbSerializer.json());
+        };
+        return new DefaultColumnFamilyConfigurer(configurer, operationsConfigurer);
+    }
+}
